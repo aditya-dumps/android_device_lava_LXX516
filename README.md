@@ -24,9 +24,9 @@
 
 ## Build Instructions (GitHub Actions)
 
-This device tree is configured to be built remotely with [Actions-Build-OrangeFox](https://github.com/XTENSEI/Actions-Build-OrangeFox):
+This device tree is configured to be built remotely with [Actions-Build-OrangeFox](https://github.com/aditya-dumps/Actions-Build-OrangeFox):
 - **Manifest Branch**: `14.1`
-- **Device Tree**: `https://github.com/XTENSEI/android_device_lava_LXX516.git`
+- **Device Tree**: `https://github.com/aditya-dumps/device_lava_LXX516_recovery.git`
 - **Device Branch**: `fox-14.1`
 - **Device Path**: `device/lava/LXX516`
 - **Device Name**: `LXX516`
