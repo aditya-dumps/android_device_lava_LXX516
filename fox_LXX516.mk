@@ -27,4 +27,3 @@ OF_ENABLE_LPTOOLS := 1
 OF_KEEP_FORCED_ENCRYPTION := 1
 OF_NO_SPLASH_CHANGE := 1
 OF_PATCH_AVB20 := 1
-OF_QUICK_BACKUP_LIST := "/boot;/data;/system_image;/vendor_image;"
