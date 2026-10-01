@@ -177,3 +177,23 @@ BOARD_USES_METADATA_PARTITION := true
 TW_USE_FSCRYPT_POLICY := 2
 TW_FORCE_KEYMASTER_VER := true
 OF_DEFAULT_KEYMASTER_VERSION := 2
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.gatekeeper@1.0 \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.gatekeeper-V1-ndk \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.security.keymint-V3-ndk \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.security.secureclock-V1-ndk \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.security.sharedsecret-V1-ndk \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.system.keystore2-V4-ndk \
+    $(TARGET_OUT_SHARED_LIBRARIES)/lib_android_keymaster_keymint_utils \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor_external \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcppcose_rkp \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libgatekeeper \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_messages \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_portable \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymint \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libsoft_attestation_cert \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libtrusty \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libtrustyHalHelper \
+    $(TARGET_OUT_SHARED_LIBRARIES)/vendor.sprd.hardware.trusty-V1-ndk \
+    $(TARGET_OUT_SHARED_LIBRARIES)/vendor.sprd.hardware.trusty@1.0
