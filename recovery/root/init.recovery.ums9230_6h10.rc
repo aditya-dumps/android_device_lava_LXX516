@@ -1,0 +1,67 @@
+# Recovery init for Lava Shark 5G (LXX516) - ro.hardware=ums9230_6h10
+import /init.recovery.common.rc
+
+# FBE decrypt: prepdecrypt sets crypto.ready; the SPRD boot HAL below provides
+# android.hardware.boot@1.0, which recovery waits on before decrypt
+on fs
+    start prepdecrypt
+
+service prepdecrypt /system/bin/prepdecrypt.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+service keymint-2-0 /system/bin/android.hardware.security.keymint@2.0-unisoc.service.trusty
+    interface aidl android.hardware.security.keymint.IKeyMintDevice/default
+    user root
+    group root drmrpc
+    disabled
+    seclabel u:r:recovery:s0
+
+service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service.trusty
+    interface hidl android.hardware.gatekeeper@1.0::IGatekeeper default
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+# stock vendor rc, class hal because recovery never class_starts early_hal
+service vendor.sprd.boot-hal-1-2 /vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service
+    class hal
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+# TEE TA supplier, stock class core service that recovery has to start itself
+service vendor.tsupplicant /vendor/bin/tsupplicant odm/firmware odm/firmware/fingerprint vendor/firmware
+    user system
+    group system
+    disabled
+    seclabel u:r:recovery:s0
+
+service ta-supplier-wait /system/bin/start_tsupplicant.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+on property:crypto.ready=1
+    start keymint-2-0
+    start ta-supplier-wait
+
+on property:vendor.sprd.tsupplicant.enabled=1
+    start vendor.tsupplicant
+
+# only once the supplier is up, the TEE asks it for the TA on connect
+on property:twrp.tsupplicant.ready=1
+    start gatekeeper-1-0
+
+on property:ro.crypto.state=unsupported || property:ro.crypto.state=unencrypted || property:twrp.decrypt.done=true
+    stop keymint-2-0
+    stop gatekeeper-1-0
+
+on boot
+    start health-hal-2-1
