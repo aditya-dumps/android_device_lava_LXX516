@@ -1,4 +1,6 @@
 *.img binary
 *.elf binary
 *.ko binary
+*.so binary
+*.bin binary
 
