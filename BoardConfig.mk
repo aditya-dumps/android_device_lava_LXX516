@@ -175,6 +175,9 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 BOARD_USES_METADATA_PARTITION := true
 TW_USE_FSCRYPT_POLICY := 2
+# Force AIDL KeyMint 2 path (device ships android.hardware.security.keymint@2 AIDL,
+# not legacy HIDL Keymaster 4.x; without this OrangeFox auto-detects wrong version)
+OF_DEFAULT_KEYMASTER_VERSION := 41
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.gatekeeper@1.0 \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.gatekeeper-V1-ndk \
