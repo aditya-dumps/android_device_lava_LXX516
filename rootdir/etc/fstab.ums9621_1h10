@@ -14,6 +14,6 @@ system_dlkm /system_dlkm erofs ro wait,avb=vbmeta_system_ext,logical,first_stage
 /devices/platform/soc/soc:ap-*/*.sdio/mmc_host/mmc1/mmc1:*/block/mmcblk1 auto vfat defaults voldmanaged=sdcard0:auto,noemulatedsd,encryptable=footer
 /dev/block/by-name/prodnv /mnt/vendor ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,check
 /dev/block/by-name/cache /cache ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,check,formattable
-/dev/block/by-name/ztepersist /mnt/vendor/persist ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,check,formattable
+/dev/block/by-name/persist /mnt/vendor/persist ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,check,formattable
 /dev/block/by-name/misc /misc emmc defaults defaults
 /dev/block/by-name/blackbox /blackbox ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc check
