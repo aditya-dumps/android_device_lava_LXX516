@@ -53,6 +53,10 @@ lib_fixups: lib_fixups_user_type = {
         lambda lib, partition: 'libbluetooth_audio_session_vendor',
     'libbluetooth_audio_session_aidl':
         lambda lib, partition: 'libbluetooth_audio_session_aidl_vendor',
+    'libvibrator':
+        lambda lib, partition: 'libvibrator_vendor',
+    'libwifi-hal':
+        lambda lib, partition: 'libwifi-hal_vendor',
 }
 
 module = ExtractUtilsModule(

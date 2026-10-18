@@ -563,6 +563,22 @@ def main():
             fail('P11', f'module "{name}" ({vendor_mods[name]["type"]}) conflicts with '
                         f'AOSP module in {rel}; drop it from proprietary-files.txt')
             continue
+        if vendor_mods[name]['type'] == 'cc_prebuilt_binary' and info['type'].startswith('cc_binary'):
+            if not prop_flag(aosp_mods, source, 'vendor_available') and not vendor_flag(aosp_mods, source):
+                fail('P11', f'binary module "{name}" conflicts with system AOSP module in {rel}; '
+                            f'drop it from proprietary-files.txt')
+                continue
+        if vendor_mods[name]['type'] == 'cc_prebuilt_library_shared' and info['type'] in ('cc_library', 'cc_library_shared'):
+            if not prop_flag(aosp_mods, source, 'vendor_available') and not vendor_flag(aosp_mods, source):
+                fail('P11', f'module "{name}" is shared while AOSP module "{source}" ({rel}) '
+                            f'is system-only, causing Kati collision; '
+                            f'rename with ;MODULE={name}_vendor and add to extract-files.py lib_fixups')
+                continue
+            if vendor_flag(aosp_mods, source) and info.get('compile_multilib') == 'first' and name == source:
+                fail('P11', f'module "{name}" conflicts with multilib-restricted AOSP module '
+                            f'"{source}" ({rel}); rename with ;MODULE={name}_vendor '
+                            f'and add to extract-files.py lib_fixups')
+                continue
         if vendor_flag(aosp_mods, source):
             continue
         info = aosp_mods[source]
