@@ -57,6 +57,8 @@ lib_fixups: lib_fixups_user_type = {
         lambda lib, partition: 'libvibrator_vendor',
     'libwifi-hal':
         lambda lib, partition: 'libwifi-hal_vendor',
+    'android.hardware.boot@1.0-impl-1.2':
+        lambda lib, partition: 'android.hardware.boot@1.0-impl-1.2_vendor',
 }
 
 module = ExtractUtilsModule(

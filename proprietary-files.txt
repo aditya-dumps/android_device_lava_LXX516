@@ -162,13 +162,13 @@ vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service
 vendor/lib/android.hardware.boot@1.0.so
 vendor/lib/android.hardware.boot@1.1.so
 vendor/lib/android.hardware.boot@1.2.so
-vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so
+vendor/lib/hw/android.hardware.boot@1.0-impl-1.2.so;MODULE=android.hardware.boot@1.0-impl-1.2_vendor
 vendor/lib/hw/unisoc.bootctrl.so
 vendor/lib/vendor.sprd.hardware.boot@1.2.so
 vendor/lib64/android.hardware.boot@1.0.so
 vendor/lib64/android.hardware.boot@1.1.so
 vendor/lib64/android.hardware.boot@1.2.so
-vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so
+vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2.so;MODULE=android.hardware.boot@1.0-impl-1.2_vendor
 vendor/lib64/hw/unisoc.bootctrl.so
 vendor/lib64/vendor.sprd.hardware.boot@1.2.so
 
@@ -1442,8 +1442,8 @@ vendor/etc/wifi/wpa_supplicant.conf
 vendor/etc/wifi/wpa_supplicant_overlay.conf
 
 # Vendor services
-vendor/bin/boringssl_self_test32
-vendor/bin/boringssl_self_test64
+vendor/bin/boringssl_self_test32;MODULE=boringssl_self_test32_vendor
+vendor/bin/boringssl_self_test64;MODULE=boringssl_self_test64_vendor
 vendor/bin/connmgr
 vendor/bin/cplogctl
 vendor/bin/create_splloader_dual_slot_byname_path.sh
@@ -1534,8 +1534,8 @@ vendor/lib/libmemion.so
 vendor/lib/libmotiondetect.so
 vendor/lib/libmulticam.so
 vendor/lib/libpipelinelog.so
-vendor/lib/libprotobuf-cpp-full-3.9.1.so
-vendor/lib/libprotobuf-cpp-lite-3.9.1.so
+vendor/lib/libprotobuf-cpp-full-3.9.1.so;MODULE=libprotobuf-cpp-full-3.9.1_vendor
+vendor/lib/libprotobuf-cpp-lite-3.9.1.so;MODULE=libprotobuf-cpp-lite-3.9.1_vendor
 vendor/lib/libshmemcompat.so
 vendor/lib/libshmemutil.so
 vendor/lib/libsysoffloadstream.so
@@ -1635,8 +1635,8 @@ vendor/lib64/libmemion.so
 vendor/lib64/libmotiondetect.so
 vendor/lib64/libmulticam.so
 vendor/lib64/libpipelinelog.so
-vendor/lib64/libprotobuf-cpp-full-3.9.1.so
-vendor/lib64/libprotobuf-cpp-lite-3.9.1.so
+vendor/lib64/libprotobuf-cpp-full-3.9.1.so;MODULE=libprotobuf-cpp-full-3.9.1_vendor
+vendor/lib64/libprotobuf-cpp-lite-3.9.1.so;MODULE=libprotobuf-cpp-lite-3.9.1_vendor
 vendor/lib64/libshmemcompat.so
 vendor/lib64/libshmemutil.so
 vendor/lib64/libsysoffloadstream.so

@@ -22,6 +22,10 @@ VENDOR_MK = VENDOR_DIR / 'Android.mk'
 VENDOR_PRODUCT_MK = VENDOR_DIR / 'LXX516-vendor.mk'
 
 PREFER = re.compile(r'^    prefer: true,\n', re.M)
+STEM_PATTERN = re.compile(
+    r'(name:\s*"(?!android\.hardware\.rebootescrow-service\.default_vendor|hostapd_vendor)[^"]+_vendor",\n)\s*stem:\s*"[^"]+",\n',
+    re.M,
+)
 
 subprocess.run(
     [sys.executable, str(HERE / 'extract-files.py'), '--regenerate_makefiles'],
@@ -32,10 +36,13 @@ subprocess.run(
 bp = VENDOR_BP.resolve()
 text = bp.read_text()
 text, count = PREFER.subn('', text)
+text, stem_count = STEM_PATTERN.subn(r'\1', text)
 bp.write_text(text)
 
 if count:
     print(f'dropped {count} prefer: true lines from {bp}')
+if stem_count:
+    print(f'dropped {stem_count} overriding stem lines from {bp}')
 
 # Convert overlay APKs from PRODUCT_COPY_FILES to BUILD_PREBUILT in Android.mk.
 # build/make/core/Makefile forbids prebuilt apks in PRODUCT_COPY_FILES.
