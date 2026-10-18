@@ -194,6 +194,44 @@ def parse_bp(path, quiet=False):
     return modules
 
 
+def parse_mk(path):
+    if not os.path.exists(path):
+        return {}
+    mods = {}
+    current = None
+    srcs = []
+    for line in open(path, encoding='utf-8', errors='ignore'):
+        line = line.strip()
+        if line.startswith('include $(CLEAR_VARS)'):
+            current = None
+            srcs = []
+        elif line.startswith('LOCAL_MODULE :='):
+            current = line.split(':=', 1)[1].strip()
+        elif line.startswith('LOCAL_SRC_FILES :='):
+            src = line.split(':=', 1)[1].strip()
+            srcs.append(src)
+        elif line.startswith('include $(BUILD_PREBUILT)') and current:
+            mods[current] = {
+                'type': 'android_app_prebuilt',
+                'srcs': srcs,
+                'shared_libs': [],
+                'static_libs': [],
+                'whole_static_libs': [],
+                'header_libs': [],
+                'defaults': [],
+                'imports': [],
+                'version_imports': {},
+                'langs': [],
+                'vendor': True,
+                'vendor_available': False,
+                'installed_location': None,
+                'symlink_target': None,
+            }
+            current = None
+            srcs = []
+    return mods
+
+
 def prop_flag(modules, name, prop, seen=None):
     """Is a boolean property set, on the module or on a defaults it inherits?"""
     if name not in modules:
@@ -419,6 +457,7 @@ def main():
 
     device_mods = parse_bp(dev_bp)
     vendor_mods = parse_bp(ven_bp)
+    vendor_mods.update(parse_mk(os.path.join(VENDOR, 'Android.mk')))
 
     for path in (dev_bp, ven_bp):
         for name in parse_bp(path, quiet=True):
@@ -463,6 +502,8 @@ def main():
     dev_copies = parse_copy_files(dev_mk)
     ven_copies = parse_copy_files(ven_mk)
     for src, dst in dev_copies + ven_copies:
+        if dst.endswith('.apk'):
+            fail('P4', f'Prebuilt apk found in PRODUCT_COPY_FILES: {src}, use BUILD_PREBUILT instead!')
         if src.startswith('$(LOCAL_PATH)'):
             real = src.replace('$(LOCAL_PATH)', DEVICE)
         elif src.startswith('$(DEVICE_PATH)'):
