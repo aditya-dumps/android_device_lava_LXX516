@@ -1,13 +1,13 @@
 #
-# SPDX-FileCopyrightText: The Z2577 Project
+# SPDX-FileCopyrightText: The LXX516 Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
 # Inherit some common Lineage stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from the Z2577 vendor blobs
-$(call inherit-product, vendor/nubia/Z2577/Z2577-vendor.mk)
+# Inherit from the LXX516 vendor blobs
+$(call inherit-product, vendor/lava/LXX516/LXX516-vendor.mk)
 
 # APEX
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -79,4 +79,4 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Rootdir, the fstab has to sit in the first stage ramdisk to mount super
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.ums9230_6h10:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.ums9230_6h10
+    $(LOCAL_PATH)/rootdir/etc/fstab.ums9621_1h10:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.ums9621_1h10

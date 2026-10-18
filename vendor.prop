@@ -25,7 +25,7 @@ persist.audio.bigvolume.switch=false
 ro.audio.bigvolume.music_speaker=2
 ro.audio.bigvolume.voice_speaker=2
 ro.audio.bigvolume.voice_earpiece=2
-ro.hardware.audio.primary=ums9230
+ro.hardware.audio.primary=ums9621
 aaudio.mmap_policy=2
 aaudio.mmap_exclusive_policy=2
 

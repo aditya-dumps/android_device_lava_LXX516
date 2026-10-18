@@ -1,18 +1,18 @@
 #
-# SPDX-FileCopyrightText: The Z2577 Project
+# SPDX-FileCopyrightText: The LXX516 Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/nubia/Z2577
+DEVICE_PATH := device/lava/LXX516
 
 # Architecture, arm64 with the stock 32 bit vendor runtime
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a75
+TARGET_CPU_VARIANT_RUNTIME := cortex-a55
 
-# The stock vendor ships 563 32 bit libraries and six 32 bit services, and
+# The stock vendor ships 32 bit libraries and services, and
 # ro.zygote is zygote64_32, so the second arch is built
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
@@ -46,12 +46,12 @@ AB_OTA_PARTITIONS += \
     vbmeta_vendor
 BOARD_USES_METADATA_PARTITION := true
 
-# Dynamic partitions, values read with lpdump from the stock super.bin
+# Dynamic partitions, values read with lpdump from the stock super.img
 # The build appends the slot suffix, so the names are declared without it
-BOARD_SUPER_PARTITION_SIZE := 13690208256
+BOARD_SUPER_PARTITION_SIZE := 5872025600
 BOARD_SUPER_PARTITION_GROUPS := group_unisoc
 BOARD_GROUP_UNISOC_PARTITION_LIST := system system_ext product vendor odm system_dlkm vendor_dlkm
-BOARD_GROUP_UNISOC_SIZE := 13686013952
+BOARD_GROUP_UNISOC_SIZE := 5867831296
 
 # Boot chain, sizes read off the phone and matched to the backup bins
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -71,7 +71,7 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 # GKI, the cmdline and the boot config belong in vendor_boot, boot.img is kernel only
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 bootconfig
-BOARD_BOOTCONFIG := androidboot.hardware=ums9230_6h10
+BOARD_BOOTCONFIG := androidboot.hardware=ums9621_1h10
 
 # The stock vendor_boot header addresses, the mkbootimg defaults differ on the ramdisk
 BOARD_MKBOOTIMG_ARGS += --base 0x00000000
@@ -123,7 +123,7 @@ TARGET_NO_BOOTLOADER := true
 # Recovery, the stock vendor_boot carries the recovery resources
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.ums9230_6h10
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.ums9621_1h10
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -186,16 +186,16 @@ BOARD_AVB_VBMETA_ODM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_ODM_ROLLBACK_INDEX_LOCATION := 7
 
 # Platform
-TARGET_BOARD_PLATFORM := ums9230
+TARGET_BOARD_PLATFORM := ums9621
 # Not the boot hardware name, the fstab follows androidboot.hardware
-TARGET_BOOTLOADER_BOARD_NAME := Z2577
-TARGET_OTA_ASSERT_DEVICE := Z2577
+TARGET_BOOTLOADER_BOARD_NAME := LXX516
+TARGET_OTA_ASSERT_DEVICE := LXX516
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Vendor patch level, from the stock ro.vendor.build.security_patch
-VENDOR_SECURITY_PATCH := 2026-05-05
+VENDOR_SECURITY_PATCH := 2026-09-05
 
 # Sepolicy
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
@@ -209,6 +209,7 @@ TARGET_SCREEN_DENSITY := 320
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \

@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: The Z2577 Project
+# SPDX-FileCopyrightText: The LXX516 Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -44,7 +44,8 @@ persist.vendor.radio.phone_count=2
 persist.radio.multisim.config=dsds
 
 # Product
-ro.product.hardware=ums9230_6h10
+ro.product.hardware=ums9621_1h10
+
 
 # Miscellaneous
 qemu.hw.mainkeys=0

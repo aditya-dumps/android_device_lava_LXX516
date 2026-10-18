@@ -1,6 +1,7 @@
 [
   {
-    "repository": "XTENSEI/android_vendor_nubia_Z2577",
-    "target_path": "vendor/nubia/Z2577"
+    "repository": "aditya-dumps/android_vendor_lava_LXX516",
+    "target_path": "vendor/lava/LXX516",
+    "branch": "lineage-23.2"
   }
 ]
