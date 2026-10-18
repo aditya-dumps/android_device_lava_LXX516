@@ -1,34 +1,38 @@
-# Device tree for the Nubia V80 Max (Z2577)
+# Device tree for the Lava Shark 5G (LXX516)
 
-The nubia V80 Max (codenamed "Z2577") is a budget smartphone from nubia.
+The Lava Shark 5G (codenamed "LXX516") is a smartphone from LAVA International.
 
 ## Device specifications
 
 | Basic                   | Spec                                                        |
 | ----------------------- | :---------------------------------------------------------- |
-| SoC                     | Unisoc T7250 (12 nm)                                        |
-| CPU                     | Octa-core (2x 1.8 GHz Cortex-A75 & 6x 1.6 GHz Cortex-A55)   |
-| GPU                     | Mali-G57 MP1                                                |
-| Memory                  | 8 GB LPDDR4X                                                |
-| Shipped Android version | 16                                                          |
-| Storage                 | 128/256 GB eMMC 5.1                                         |
+| SoC                     | Unisoc UMS9621S                                             |
+| CPU                     | Octa-core (2x Cortex-A76 & 6x Cortex-A55)                   |
+| GPU                     | Mali-G57                                                    |
+| Memory                  | 4 GB / 6 GB LPDDR4X                                         |
+| Shipped Android version | 15                                                          |
+| Storage                 | 64 GB / 128 GB eMMC 5.1                                     |
 | MicroSD                 | microSDXC                                                   |
-| Battery                 | Non-removable Li-Polymer 6000 mAh                           |
-| Dimensions              | 171.55 x 77.75 x 8.3 mm                                     |
-| Display                 | IPS LCD 120 Hz, 6.9 inches, 720 x 1640 pixels               |
-| Rear Camera 1           | 50 MP, f/1.8, PDAF                                          |
-| Rear Camera 2           | 0.08 MP AI lens                                             |
-| Front Camera            | 16 MP                                                       |
+| Battery                 | Non-removable Li-Polymer 5000 mAh                           |
+| Display                 | IPS LCD, 720 x 1600 pixels                                  |
+| Rear Camera             | 13 MP, f/2.2                                                |
+| Front Camera            | 5 MP                                                        |
 
 ## Device Picture
 
-![nubia V80 Max](docs/z2577.jpg)
+![Lava Shark 5G](docs/lxx516.jpg)
+
+## Special Thanks & Credits
+
+A huge thank you and massive credits go to **[@XTENSEI](https://github.com/XTENSEI)**!
+
+He did most of the heavy lifting, foundational bringup work, reverse engineering, and tooling for this Unisoc platform base tree and vendor configuration. This port builds directly upon his extensive efforts and expertise.
 
 ## Extracting the blobs
 
 `proprietary-files.txt` is the list and the vendor repo is its generated output.
-Both need a LineageOS checkout, with this tree at `device/nubia/Z2577` and the
-blobs at `vendor/nubia/Z2577`:
+Both need a LineageOS / crDroid checkout, with this tree at `device/lava/LXX516` and the
+blobs at `vendor/lava/LXX516`:
 
     ./extract-files.py
     ./setup-makefiles.py
