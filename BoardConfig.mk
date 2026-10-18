@@ -70,7 +70,7 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 
 # GKI, the cmdline and the boot config belong in vendor_boot, boot.img is kernel only
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 bootconfig androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 bootconfig androidboot.selinux=permissive loglevel=8 printk.devkmsg=on
 BOARD_BOOTCONFIG := androidboot.hardware=ums9621_1h10 androidboot.selinux=permissive
 
 # The stock vendor_boot header addresses, the mkbootimg defaults differ on the ramdisk
@@ -108,6 +108,7 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/prebuilts/modul
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/prebuilts/modules_ramdisk/modules.load))
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/prebuilts/modules_ramdisk/modules.load.recovery))
 BOARD_RECOVERY_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES)
+BOARD_RECOVERY_KERNEL_MODULES_LOAD := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
 
 # ODM image, its own partition, the odm blobs do not belong in the vendor image
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
