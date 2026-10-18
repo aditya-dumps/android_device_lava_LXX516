@@ -164,12 +164,19 @@ def parse_bp(path, quiet=False):
                 srcs.append(single)
         libs = {prop: bp_list(text, prop, variables)
                 for prop in LIBS + ('header_libs',)}
+        ver_imports = {}
+        f_vinfo = re.search(r'versions_with_info:\s*\[(.*?)\]\s*,?\s*(?:\n\s*[a-z_]|\Z)', text, re.S)
+        if f_vinfo:
+            for entry in re.finditer(r'version:\s*"([^"]+)"[^}]*?imports:\s*\[(.*?)\]', f_vinfo.group(1), re.S):
+                ver_imports[entry.group(1)] = [m.group(1) for m in re.finditer(r'"([^"]+)"', entry.group(2))]
+
         info = {
             'type': mtype,
             'srcs': srcs,
             **libs,
             'defaults': bp_list(text, 'defaults', variables),
             'imports': bp_list(text, 'imports', variables),
+            'version_imports': ver_imports,
             'langs': bp_list(text, 'langs', variables),
             'vendor': bool(re.search(
                 r'^\s*(vendor|proprietary|soc_specific): true,?$', text, re.M)),
@@ -212,21 +219,28 @@ def lib_versions(modules, lib, cache=None, stack=None):
         if not found:
             continue
         iface = found.group('iface')
-        reach = {(iface, found.group('lang')): {found.group('version')}}
+        version = found.group('version')
+        reach = {(iface, found.group('lang')): {version}}
         # the interface's own imports are baked into every version of it
         base = modules.get(iface)
         if base and base['type'] == 'aidl_interface':
-            for key, versions in aidl_versions(modules, iface, cache, stack).items():
-                reach.setdefault(key, set()).update(versions)
+            for target_iface, lang, target_ver in imported_versions(base, version):
+                reach.setdefault((target_iface, lang), set()).add(target_ver)
+                sub_lib = f'{target_iface}-V{target_ver}-{lang}'
+                for key, versions in lib_versions(modules, sub_lib, cache, stack).items():
+                    reach.setdefault(key, set()).update(versions)
         return reach
     return aidl_versions(modules, lib, cache, stack)
 
 
-def imported_versions(info):
+def imported_versions(info, version=None):
     """A versioned `imports` entry, expanded over the backends it applies to."""
     if info['type'] != 'aidl_interface':
         return
-    for entry in info['imports']:
+    imports = info.get('imports', [])
+    if version and version in info.get('version_imports', {}):
+        imports = info['version_imports'][version]
+    for entry in imports:
         found = re.match(r'^(?P<iface>.+)-V(?P<version>\d+)$', entry)
         if not found:
             continue
@@ -422,15 +436,28 @@ def main():
 
     # the AOSP corpus, read once, used by P5 and P11
     aosp_mods, paths = {}, {}
-    for root_dir in args.aosp:
-        for root, dirs, names in os.walk(root_dir):
-            if 'Android.bp' not in names:
+    top_tree = os.path.abspath(os.path.join(DEVICE, '../../..'))
+    bp_list_path = os.path.join(top_tree, 'out/.module_paths/Android.bp.list')
+    if not args.aosp and os.path.exists(bp_list_path):
+        bp_files = [os.path.join(top_tree, line.strip())
+                    for line in open(bp_list_path).read().splitlines() if line.strip()]
+        for path in bp_files:
+            if path.startswith(DEVICE) or path.startswith(VENDOR):
                 continue
-            path = os.path.join(root, 'Android.bp')
             for name, info in parse_bp(path, quiet=True).items():
                 if name not in aosp_mods:
                     aosp_mods[name] = info
                     paths[name] = path
+    else:
+        for root_dir in args.aosp:
+            for root, dirs, names in os.walk(root_dir):
+                if 'Android.bp' not in names:
+                    continue
+                path = os.path.join(root, 'Android.bp')
+                for name, info in parse_bp(path, quiet=True).items():
+                    if name not in aosp_mods:
+                        aosp_mods[name] = info
+                        paths[name] = path
 
     # P4, copy sources
     dev_copies = parse_copy_files(dev_mk)
@@ -523,11 +550,20 @@ def main():
 
     STATIC_ONLY = ('cc_library_static', 'cc_prebuilt_library_static',
                    'cc_library_headers')
+    ETC_TYPES = ('prebuilt_etc', 'prebuilt_etc_xml', 'vintf_fragment')
 
     # P11, names AOSP also uses; vendor_available is what gives it a vendor variant.
     for name in sorted(vendor_mods):
         source = aosp_counterpart(name, aosp_mods)
-        if source is None or vendor_flag(aosp_mods, source):
+        if source is None:
+            continue
+        info = aosp_mods[source]
+        rel = paths[source].replace(top_tree + '/', '')
+        if vendor_mods[name]['type'] in ETC_TYPES and info['type'] in ETC_TYPES:
+            fail('P11', f'module "{name}" ({vendor_mods[name]["type"]}) conflicts with '
+                        f'AOSP module in {rel}; drop it from proprietary-files.txt')
+            continue
+        if vendor_flag(aosp_mods, source):
             continue
         info = aosp_mods[source]
         rel = paths[source].split('refs/', 1)[-1].split('/tmp/', 1)[-1]
