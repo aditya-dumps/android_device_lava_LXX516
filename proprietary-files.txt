@@ -1988,12 +1988,6 @@ vendor/lib/hw/audio.dp.ums9621.so
 vendor/lib/hw/bootctrl.default.so
 vendor/lib/hw/face.default.so
 vendor/lib/hw/sound_trigger.primary.ums9621.so
-vendor/lib/hw/vulkan.ums9621.so
-vendor/lib/libGLES_mali.so
-vendor/lib/libOpenCL.so
-vendor/lib/libOpenCL.so.1
-vendor/lib/libOpenCL.so.1.1
-vendor/lib/libOpenCL.so.1.2
 vendor/lib/lib_foss.so
 vendor/lib/libalsautils.so
 vendor/lib/libcodec2_hidl@1.0.so
@@ -2043,12 +2037,6 @@ vendor/lib64/hw/android.hardware.soundtrigger@2.3-impl.so
 vendor/lib64/hw/audio.dp.ums9621.so
 vendor/lib64/hw/bootctrl.default.so
 vendor/lib64/hw/face.default.so
-vendor/lib64/hw/vulkan.ums9621.so
-vendor/lib64/libGLES_mali.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/libOpenCL.so.1
-vendor/lib64/libOpenCL.so.1.1
-vendor/lib64/libOpenCL.so.1.2
 vendor/lib64/lib_foss.so
 vendor/lib64/libalsautils.so
 vendor/lib64/libbinderdebug.so
@@ -2524,7 +2512,6 @@ odm/etc/camera/3rdpool/morpho/MorphoImageRefiner/tuning/morpho_mfnr_tuning.xml
 odm/etc/init/init.silead.rc
 odm/etc/permissions/vendor.sprd.hardware.ifaa.xml
 odm/etc/permissions/vendor.sprd.hardware.soter.xml
-odm/etc/vintf/manifest.xml
 odm/etc/wifi_board_config.ini
 odm/etc/wifi_board_config_aa.ini
 odm/overlay/unisoc_overlay_core_max_cached_processed_24.apk;MAKE_COPY_RULE_ONLY
