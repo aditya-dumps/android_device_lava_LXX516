@@ -14,7 +14,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/nubia/Z2577',
+    'device/lava/LXX516',
 ]
 
 # The tool's own fixups, without which the generated shared_libs keep the blob's
@@ -55,8 +55,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 module = ExtractUtilsModule(
-    'Z2577',
-    'nubia',
+    'LXX516',
+    'lava',
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
 )

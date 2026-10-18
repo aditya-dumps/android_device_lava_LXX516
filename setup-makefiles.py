@@ -14,11 +14,15 @@ import re
 import subprocess
 
 HERE = pathlib.Path(__file__).resolve().parent
-VENDOR_BP = HERE / '../../../vendor/nubia/Z2577/Android.bp'
+VENDOR_BP = HERE / '../../../vendor/lava/LXX516/Android.bp'
 PREFER = re.compile(r'^    prefer: true,\n', re.M)
 
+import os
+import sys
+
 subprocess.run(
-    [str(HERE / 'extract-files.py'), '--regenerate_makefiles'],
+    [sys.executable, str(HERE / 'extract-files.py'), '--regenerate_makefiles'],
+    env=os.environ,
     check=True,
 )
 
