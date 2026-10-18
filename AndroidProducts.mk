@@ -9,6 +9,4 @@ PRODUCT_MAKEFILES := \
 COMMON_LUNCH_CHOICES := \
     lineage_LXX516-bp4a-eng \
     lineage_LXX516-bp4a-userdebug \
-    lineage_LXX516-eng \
-    lineage_LXX516-userdebug \
-    lineage_LXX516-user
+    lineage_LXX516-bp4a-user
