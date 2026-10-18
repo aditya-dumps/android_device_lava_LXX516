@@ -15,6 +15,7 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/lava/LXX516',
+    'external/OpenCL-ICD-Loader',
 ]
 
 # The tool's own fixups, without which the generated shared_libs keep the blob's

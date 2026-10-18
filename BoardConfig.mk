@@ -213,7 +213,8 @@ TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+    $(DEVICE_PATH) \
+    external/OpenCL-ICD-Loader
 
 # VINTF
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/framework_compatibility_matrix.xml
