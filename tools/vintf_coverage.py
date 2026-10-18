@@ -5,8 +5,8 @@ import glob
 import os
 import xml.etree.ElementTree as ET
 
-VENDOR = '/home/andrei/romtools/WORK/rom/src/stock/vendor/etc/vintf'
-PLATFORM = '/tmp/sysmnt/system/etc/vintf'
+VENDOR = '/home/aditya/stock_dump_LXX516/extracted/vendor/etc/vintf'
+PLATFORM = '/home/aditya/stock_dump_LXX516/extracted/system/etc/vintf'
 
 
 def parse(path):

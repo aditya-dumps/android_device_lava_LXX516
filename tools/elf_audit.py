@@ -9,8 +9,11 @@ from elftools.elf.elffile import ELFFile
 from elftools.elf.dynamic import DynamicSection
 from elftools.common.exceptions import ELFError
 
-LIST = '/home/andrei/Downloads/Trees/device_nubia_Z2577/proprietary-files.txt'
-BASE = '/home/andrei/Downloads/Trees/vendor_nubia_Z2577_lineage/proprietary'
+HERE = os.path.dirname(os.path.abspath(__file__))
+DEVICE = os.path.abspath(os.path.join(HERE, '..'))
+VENDOR = os.path.abspath(os.path.join(HERE, '../../../../vendor/lava/LXX516'))
+LIST = os.path.join(DEVICE, 'proprietary-files.txt')
+BASE = os.path.join(VENDOR, 'proprietary')
 ROOTS = (os.path.join(BASE, 'vendor'), os.path.join(BASE, 'odm'))
 # Libs the platform itself provides, so a vendor blob may depend on them.
 PLATFORM_PREFIXES = (

@@ -11,7 +11,7 @@ import sys
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPORT = HERE / 'shadow-findings.txt'
-SUFFIXES = ('_vendor', '_Z2577')
+SUFFIXES = ('_vendor', '_LXX516')
 
 # The shape Soong prints for a module that has no variant in a requested image.
 ERROR = re.compile(
@@ -69,16 +69,16 @@ def canonical_name(name: str) -> str:
     found = defined_modules(HERE.parent)
     if name + '_vendor' in found:
         return name + '_vendor'
-    if name + '_Z2577' in found:
-        return name + '_Z2577'
+    if name + '_LXX516' in found:
+        return name + '_LXX516'
     return name
 
 
 def defined_modules(root: pathlib.Path) -> dict[str, pathlib.Path]:
     """Every module name the two trees generate, and the file that declares it."""
     found: dict[str, pathlib.Path] = {}
-    files = [root / 'vendor/nubia/Z2577/Android.bp']
-    files += sorted((root / 'device/nubia/Z2577').glob('**/Android.bp'))
+    files = [root / 'vendor/lava/LXX516/Android.bp']
+    files += sorted((root / 'device/lava/LXX516').glob('**/Android.bp'))
     for path in files:
         if not path.is_file():
             continue
@@ -170,8 +170,8 @@ def parse_modules(text: str) -> list[dict]:
 
 def our_prebuilts(root: pathlib.Path) -> dict[str, tuple[str, set[str]]]:
     found: dict[str, tuple[str, set[str]]] = {}
-    files = [root / 'vendor/nubia/Z2577/Android.bp']
-    files += sorted((root / 'device/nubia/Z2577').glob('**/Android.bp'))
+    files = [root / 'vendor/lava/LXX516/Android.bp']
+    files += sorted((root / 'device/lava/LXX516').glob('**/Android.bp'))
     for path in files:
         if not path.is_file():
             continue
@@ -196,7 +196,7 @@ def platform_files(top: pathlib.Path) -> list[pathlib.Path]:
             base = top / root
             if base.is_dir():
                 paths += sorted(base.rglob('Android.bp'))
-    ours = (str(top / 'device/nubia/Z2577'), str(top / 'vendor/nubia/Z2577'))
+    ours = (str(top / 'device/lava/LXX516'), str(top / 'vendor/lava/LXX516'))
     return [path for path in paths
             if path.is_file() and not str(path).startswith(ours)]
 
@@ -445,7 +445,7 @@ def main() -> int:
         epilog=__doc__,
     )
     parser.add_argument('--top', default='', help='source tree root, found above the script')
-    parser.add_argument('--target', default='', help='lineage_Z2577 by default')
+    parser.add_argument('--target', default='', help='lineage_LXX516 by default')
     parser.add_argument('--builder', default='', help='soong_build, default out/host/linux-x86/bin')
     parser.add_argument('--max', type=int, default=200, help='safety bound on replays')
     parser.add_argument('--in-place', action='store_true', help='write the real out/soong')
@@ -479,8 +479,8 @@ def main() -> int:
         available_env = top / 'out/soong/soong.environment.available'
         used_env = top / 'out/soong' / f'soong.environment.used.{target}.build'
 
-        patchable = [top / 'vendor/nubia/Z2577/Android.bp']
-        patchable += sorted((top / 'device/nubia/Z2577').glob('**/Android.bp'))
+        patchable = [top / 'vendor/lava/LXX516/Android.bp']
+        patchable += sorted((top / 'device/lava/LXX516').glob('**/Android.bp'))
         patchable = [path for path in patchable if path.exists()]
 
         work = top / 'out/shadow-sweep'

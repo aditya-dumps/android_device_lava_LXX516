@@ -11,12 +11,14 @@ import os
 import re
 import sys
 
-LIST = '/home/andrei/Downloads/Trees/device_nubia_Z2577/proprietary-files.txt'
-TREE = '/home/andrei/Downloads/Trees/device_nubia_Z2577'
-AOSP = '/home/andrei/romtools/WORK/aosp_sepolicy'
+HERE = os.path.dirname(os.path.abspath(__file__))
+TREE = os.path.abspath(os.path.join(HERE, '..'))
+LIST = os.path.join(TREE, 'proprietary-files.txt')
+TOP = os.path.abspath(os.path.join(TREE, '../../..'))
+AOSP = os.path.join(TOP, 'system/sepolicy')
 STOCK = {
-    'vendor': '/home/andrei/romtools/WORK/rom/src/stock/vendor',
-    'odm': '/home/andrei/romtools/WORK/rom/src/stock/odm',
+    'vendor': '/home/aditya/stock_dump_LXX516/extracted/vendor',
+    'odm': '/home/aditya/stock_dump_LXX516/extracted/odm',
 }
 
 PLATFORM_CONTEXTS = (
@@ -132,11 +134,7 @@ def platform_types():
                 if not name.endswith('.te'):
                     continue
                 path = os.path.join(dirpath, name)
-                if root.endswith(os.path.join('device_nubia_Z2577', 'sepolicy')) \
-                        and not os.environ.get('SEPOLICY_FULL_TREE'):
-                    text = gotree.tree_text(path)
-                else:
-                    text = open(path, encoding='utf-8', errors='ignore').read()
+                text = open(path, encoding='utf-8', errors='ignore').read()
                 for m in re.finditer(r'^\s*type\s+([A-Za-z0-9_-]+)\s*,(.*)$', text, re.M):
                     declared.add(m.group(1))
                     if 'exec_type' in m.group(2):

@@ -13,9 +13,10 @@ import re
 import subprocess
 import sys
 
-VENDOR_REPO = '/home/andrei/Downloads/Trees/vendor_nubia_Z2577_lineage'
-STOCK_SYSTEM = '/tmp/sysmnt'
-DEFAULT_NEEDED = '/tmp/needed.tsv'
+HERE = os.path.dirname(os.path.abspath(__file__))
+VENDOR_REPO = os.path.abspath(os.path.join(HERE, '../../../../vendor/lava/LXX516'))
+STOCK_SYSTEM = '/home/aditya/stock_dump_LXX516/extracted/system'
+DEFAULT_NEEDED = '/tmp/needed_LXX516.tsv'
 
 
 def vendored_libs():

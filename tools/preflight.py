@@ -26,8 +26,9 @@ import sys
 import tempfile
 from collections import defaultdict
 
-DEVICE = '/home/andrei/Downloads/Trees/device_nubia_Z2577'
-VENDOR = '/home/andrei/Downloads/Trees/vendor_nubia_Z2577_lineage'
+HERE = os.path.dirname(os.path.abspath(__file__))
+DEVICE = os.path.abspath(os.path.join(HERE, '..'))
+VENDOR = os.path.abspath(os.path.join(HERE, '../../../../vendor/lava/LXX516'))
 
 LEGAL_NAME = re.compile(r'^[A-Za-z0-9_.@+-]+$')
 MODULE_OPEN = re.compile(r'^([a-z_0-9]+) \{$')
@@ -153,7 +154,7 @@ def parse_bp(path, quiet=False):
         # srcs: [ ... ] for multi arch, src: "..." and srcs: "..." for single
         srcs = []
         for array, single in re.findall(
-                r'^\s*(?:srcs?|jars): (?:\[(.*?)\]|"([^"]+)")', text, re.M | re.S):
+                r'^\s*(?:srcs?|jars|apk): (?:\[(.*?)\]|"([^"]+)")', text, re.M | re.S):
             if array:
                 srcs += [value for value in
                          (resolve_value(element, variables)
@@ -398,7 +399,7 @@ def main():
 
     dev_bp = os.path.join(DEVICE, 'Android.bp')
     ven_bp = os.path.join(VENDOR, 'Android.bp')
-    ven_mk = os.path.join(VENDOR, 'Z2577-vendor.mk')
+    ven_mk = os.path.join(VENDOR, 'LXX516-vendor.mk')
     dev_mk = os.path.join(DEVICE, 'device.mk')
     blob_list = os.path.join(DEVICE, 'proprietary-files.txt')
 
@@ -439,8 +440,8 @@ def main():
             real = src.replace('$(LOCAL_PATH)', DEVICE)
         elif src.startswith('$(DEVICE_PATH)'):
             real = src.replace('$(DEVICE_PATH)', DEVICE)
-        elif src.startswith('vendor/nubia/Z2577/'):
-            real = os.path.join(VENDOR, src[len('vendor/nubia/Z2577/'):])
+        elif src.startswith('vendor/lava/LXX516/'):
+            real = os.path.join(VENDOR, src[len('vendor/lava/LXX516/'):])
         else:
             real = os.path.join(VENDOR, src)
         if not os.path.exists(real):
@@ -478,7 +479,7 @@ def main():
         for src in info['srcs']:
             landed.add(src)
     for src, dst in ven_copies:
-        landed.add(src.removeprefix('vendor/nubia/Z2577/proprietary/'))
+        landed.add(src.removeprefix('vendor/lava/LXX516/proprietary/'))
     for src, dst in dev_copies:
         landed.add(src.replace('$(LOCAL_PATH)/', '').replace('$(DEVICE_PATH)/', ''))
     for blob in files:
