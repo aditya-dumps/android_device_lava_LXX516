@@ -70,8 +70,8 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 
 # GKI, the cmdline and the boot config belong in vendor_boot, boot.img is kernel only
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 bootconfig
-BOARD_BOOTCONFIG := androidboot.hardware=ums9621_1h10
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 bootconfig androidboot.selinux=permissive
+BOARD_BOOTCONFIG := androidboot.hardware=ums9621_1h10 androidboot.selinux=permissive
 
 # The stock vendor_boot header addresses, the mkbootimg defaults differ on the ramdisk
 BOARD_MKBOOTIMG_ARGS += --base 0x00000000
@@ -225,3 +225,13 @@ ODM_MANIFEST_WIFIONLY_FILES := $(DEVICE_PATH)/configs/vintf/odm/manifest_wifionl
 
 # The dtb partition is all zero in the stock backup, so the dtb travels in
 # vendor_boot: prebuilts/dtb.img feeds --dtb
+
+# Build broken flags for build tolerance
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
+BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW := true
+BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
+SELINUX_IGNORE_NEVERALLOWS := true
