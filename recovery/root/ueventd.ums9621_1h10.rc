@@ -4,3 +4,7 @@
 /dev/block/by-name/miscdata      0660     root        system
 /dev/block/by-name/persist       0660     system      system
 /dev/block/by-name/sysdumpdb     0660     system      system
+
+/dev/dri/*                       0666     root        graphics
+/dev/graphics/*                  0666     root        graphics
+/dev/watchdog                    0660     root        root

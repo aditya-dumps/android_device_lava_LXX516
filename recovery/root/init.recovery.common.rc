@@ -6,6 +6,10 @@ on early-init
     setprop sys.usb.controller musb-hdrc.1.auto
 
 on init
+    # Ensure configfs and controller properties are active before 'on fs' runs
+    setprop sys.usb.configfs 1
+    setprop sys.usb.controller musb-hdrc.1.auto
+
     # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
     write /sys/fs/selinux/checkreqprot 0
 

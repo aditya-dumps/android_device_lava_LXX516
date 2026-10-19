@@ -11,6 +11,8 @@ sprd_wdt_fiq.ko
 clk-sprd.ko
 ums9621-clk.ko
 sysdump.ko
+unisoc_last_kmsg.ko
+sprd_aphang.ko
 iolimit.ko
 unisoc-sched.ko
 spi-sprd-adi.ko
@@ -43,6 +45,7 @@ sprd_pdbg.ko
 unisoc-mailbox.ko
 sprd-sipc-virt-bus.ko
 sipc-core.ko
+sprd_pmic_wdt.ko
 sipa-core.ko
 sipa-dele.ko
 sipa_eth.ko
