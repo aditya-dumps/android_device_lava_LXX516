@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2016-2023 Unisoc (Shanghai) Technologies Co., Ltd
+# SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0
+
+on early-init
+    setprop sys.usb.configfs 1
+    setprop sys.usb.controller musb-hdrc.1.auto
+
+on init
+    # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
+    write /sys/fs/selinux/checkreqprot 0
+
+    chown system root /proc/mdbg/assert
+    chown system root /proc/mdbg/wdtirq
+    chown system root /proc/mdbg/at_cmd
+    chown system root /proc/mdbg/loopcheck
+
+    chmod 760 /proc/mdbg/assert
+    chmod 760 /proc/mdbg/wdtirq
+    chmod 760 /proc/mdbg/at_cmd
+    chmod 760 /proc/mdbg/loopcheck
+
+    chown system root /proc/cpwcn/wdtirq
+    chmod 766 /proc/cpwcn/wdtirq
+
+on boot
+    setprop sys.usb.configfs 1
+    setprop sys.usb.controller musb-hdrc.1.auto
+    setprop sys.usb.config adb
+
+    write /sys/block/mmcblk0boot0/force_ro 0
+    write /sys/block/mmcblk0boot1/force_ro 0
+
+    chmod 660 /sys/class/power_supply/battery/charger.0/stop_charge
+    chmod 660 /sys/class/power_supply/battery/charger.0/jeita_control
+    chmod 660 /sys/class/power_supply/battery/input_current_limit
+    chmod 660 /sys/class/power_supply/battery/constant_charge_current
+    chmod 660 /sys/class/power_supply/battery/charger.0/keep_awake

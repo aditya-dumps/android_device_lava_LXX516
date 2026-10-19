@@ -363,7 +363,7 @@ ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
 ro.recovery.usb.vid=18D1
 ro.recovery.usb.adb.pid=D001
 ro.recovery.usb.fastboot.pid=4EE0
-sys.usb.controller=musb-hdrc.0.auto
+sys.usb.controller=musb-hdrc.1.auto
 
 # Wi-Fi
 persist.vendor.wcn.log_dest=0
