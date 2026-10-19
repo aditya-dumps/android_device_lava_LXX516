@@ -125,8 +125,7 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 
-# Recovery, the stock vendor_boot carries the recovery resources
-BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
+# Recovery, the stock vendor_boot carries the recovery resources as a single monolithic ramdisk
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.ums9621_1h10
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
