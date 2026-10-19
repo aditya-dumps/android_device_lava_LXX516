@@ -103,12 +103,7 @@ BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/prebuilts
 # Ramdisk compression, stock and recovery use LZ4 legacy kernel format
 BOARD_RAMDISK_USE_LZ4 := true
 
-# Ramdisk kernel modules, required for first stage boot and recovery
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/prebuilts/modules_ramdisk/*.ko)
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/prebuilts/modules_ramdisk/modules.load))
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/prebuilts/modules_ramdisk/modules.load.recovery))
-BOARD_RECOVERY_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES)
-BOARD_RECOVERY_KERNEL_MODULES_LOAD := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
+# Ramdisk kernel modules are omitted to allow first_stage_init to boot cleanly without strict mode failures (matches Nubia Z2577)
 
 # ODM image, its own partition, the odm blobs do not belong in the vendor image
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
