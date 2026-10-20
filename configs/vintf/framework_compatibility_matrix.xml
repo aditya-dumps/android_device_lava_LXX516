@@ -15,6 +15,183 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.sprd.hardware.boot</name>
+        <version>1.2</version>
+        <interface>
+            <name>IBootControl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.sprd.hardware.connmgr</name>
+        <version>1.0</version>
+        <interface>
+            <name>IConnmgr</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.cplog_svc</name>
+        <interface>
+            <name>ILogTransportInductor</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>ISysLogControl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.enhance</name>
+        <interface>
+            <name>IEnhance</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.fingerprintmmi</name>
+        <interface>
+            <name>IFingerprintmmi</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.gnss</name>
+        <interface>
+            <name>IUnisocGnss</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.hdcp</name>
+        <interface>
+            <name>IHDCP</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.ifaa</name>
+        <interface>
+            <name>IIfaa</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.network</name>
+        <interface>
+            <name>INetworkControl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.soter</name>
+        <interface>
+            <name>ISoter</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.sprd.hardware.thermal</name>
+        <version>1.0</version>
+        <version>2.0</version>
+        <interface>
+            <name>IExtThermal</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.tool</name>
+        <interface>
+            <name>IToolControl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.tui</name>
+        <interface>
+            <name>ITui</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.unipnp</name>
+        <interface>
+            <name>IUnionPnP</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.unisoc.hardware.ai_engine</name>
+        <version>2</version>
+        <interface>
+            <name>IAIEngineControl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.unisoc.hardware.radio.data</name>
+        <interface>
+            <name>IExtRadioData</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.unisoc.hardware.radio.ims</name>
+        <interface>
+            <name>IImsRadio</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.unisoc.hardware.radio.lite</name>
+        <interface>
+            <name>ILiteRadio</name>
+            <instance>liteservice2</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.unisoc.hardware.radio.messaging</name>
+        <interface>
+            <name>IExtRadioMessaging</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.unisoc.hardware.radio.modem</name>
+        <interface>
+            <name>IExtRadioModem</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.unisoc.hardware.radio.network</name>
+        <interface>
+            <name>IExtRadioNetwork</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.unisoc.hardware.radio.sim</name>
+        <interface>
+            <name>IExtRadioSim</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.unisoc.hardware.radio.voice</name>
+        <interface>
+            <name>IExtRadioVoice</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
     <sepolicy>
         <kernel-sepolicy-version>30</kernel-sepolicy-version>
         <sepolicy-version>29.0</sepolicy-version>
