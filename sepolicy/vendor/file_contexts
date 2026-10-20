@@ -1,44 +1,17 @@
-# TEE
-/(vendor|system/vendor)/bin/tee_rpc                              u:object_r:tee_exec:s0
-/(vendor|system/vendor)/bin/rpmbserver                           u:object_r:tee_exec:s0
-/(vendor|system/vendor)/bin/tsupplicant                          u:object_r:tee_exec:s0
-/(vendor|system/vendor)/bin/sprdstorageproxyd                    u:object_r:tee_exec:s0
-/dev/trusty-ipc-dev0                                             u:object_r:teetz_device:s0
-/dev/tshm                                                        u:object_r:teetz_device:s0
-/dev/tui_dev                                                     u:object_r:teetz_device:s0
-/dev/rpmb0                                                       u:object_r:mmcblk_device:s0
-/dev/mmcblk0rpmb                                                 u:object_r:mmcblk_device:s0
-/dev/block/mmcblk0rpmb                                           u:object_r:mmcblk_device:s0
-/dev/socket/rpmbserver                                           u:object_r:rpmb_socket:s0
-/data/vendor/sprd_ss(/.*)?                                       u:object_r:ss_file:s0
-/data/vendor/sprd_tee_ss(/.*)?                                   u:object_r:ss_file:s0
-
-# Trusty HAL
-/(vendor|system/vendor)/bin/hw/vendor\.sprd\.hardware\.trusty-service  u:object_r:hal_trustyclientaidl_default_exec:s0
-
 # Gatekeeper
 /(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.trusty  u:object_r:hal_gatekeeper_default_exec:s0
-
-# Keymint
-/(vendor|system/vendor)/bin/hw/android\.hardware\.security\.keymint@2\.0-unisoc\.service\.trusty  u:object_r:hal_keymint_unisoc_exec:s0
 
 # Identity
 /(vendor|system/vendor)/bin/hw/android\.hardware\.identity-service\.trusty  u:object_r:hal_identity_default_exec:s0
 
 # Sensors
-/mnt/vendor/sensorhub(/.*)?                                      u:object_r:sensorhub_data_file:s0
 /sys/class/sprd_sensorhub(/.*)?                                  u:object_r:sysfs_sensor:s0
-/sys/devices/virtual/misc/sprd_sensor(/.*)?                      u:object_r:ps_sensor_file:s0
 
 # Kernel modules
 /(vendor|system/vendor)/bin/init\.insmod\.sh                     u:object_r:insmod_sh_exec:s0
 
-# Touch
-/data/vendor/touchscreen(/.*)?                                   u:object_r:thp_vendor_data_file:s0
-
 # Stock odm and vendor file contexts
 /(vendor|system/vendor)/bin/srtd       u:object_r:srtd_exec:s0
-/(vendor|system/vendor)/bin/gpsd             u:object_r:gpsd_exec:s0
 /(vendor|system/vendor)/bin/engpc       u:object_r:engpc_exec:s0
 /(vendor|system/vendor)/bin/dcxsrv       u:object_r:dcxsrv_exec:s0
 /(vendor|system/vendor)/bin/uniber u:object_r:uniber_exec:s0
