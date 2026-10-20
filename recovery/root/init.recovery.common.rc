@@ -10,6 +10,8 @@ on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller musb-hdrc.1.auto
 
+    mkdir /blackbox 0771 system system
+
     # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
     write /sys/fs/selinux/checkreqprot 0
 
