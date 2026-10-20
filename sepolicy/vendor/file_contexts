@@ -454,7 +454,6 @@
 /(vendor|system/vendor)/bin/zte_battery_life                u:object_r:zte_battery_life_exec:s0
 /(vendor|system/vendor)/bin/zte_thermal_daemon              u:object_r:zte_thermal_daemon_exec:s0
 /(vendor|system/vendor)/bin/hw/unionpnp_service u:object_r:unionpnp_service_exec:s0
-/system_ext/bin/ju_ipsec_server u:object_r:racoon_exec:s0
 /sys/devices/platform/fpc1020/irq               u:object_r:fpc_sysfs:s0
 /(vendor|system/vendor)/bin/battery_record_daemon           u:object_r:battery_record_daemon_exec:s0
 /dev/dma_heap/uncached_carveout_mm           u:object_r:dmabuf_system_heap_device:s0
