@@ -37,13 +37,7 @@ AB_OTA_PARTITIONS += \
     system_ext \
     vendor \
     vendor_boot \
-    vendor_dlkm \
-    vbmeta \
-    vbmeta_odm \
-    vbmeta_product \
-    vbmeta_system \
-    vbmeta_system_ext \
-    vbmeta_vendor
+    vendor_dlkm
 BOARD_USES_METADATA_PARTITION := true
 
 # Dynamic partitions, values read with lpdump from the stock super.img
@@ -163,7 +157,7 @@ BOARD_AVB_DTBO_ROLLBACK_INDEX_LOCATION := 6
 BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 18
+BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 17
 
 BOARD_AVB_VBMETA_CUSTOM_PARTITIONS := \
     system_ext \
