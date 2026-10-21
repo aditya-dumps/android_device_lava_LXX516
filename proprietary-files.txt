@@ -904,13 +904,13 @@ vendor/bin/tee_rpc
 vendor/lib/libteec.so
 vendor/lib/libteecPlatform.so
 vendor/lib/libteeproduction.so
-vendor/lib/libtrusty.so
+vendor/lib/libtrusty.so;MODULE=libtrusty_vendor
 vendor/lib/libtrustyHalHelper.so
 vendor/lib64/libkernelbootcp.trusty.so
 vendor/lib64/libteec.so
 vendor/lib64/libteecPlatform.so
 vendor/lib64/libteeproduction.so
-vendor/lib64/libtrusty.so
+vendor/lib64/libtrusty.so;MODULE=libtrusty_vendor
 vendor/lib64/libtrustyHalHelper.so
 
 # USB

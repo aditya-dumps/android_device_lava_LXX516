@@ -23,3 +23,10 @@ ro.support_one_handed_mode=true
 
 # Wi-Fi
 ro.wifi.channels=
+
+# ADB and Logging
+persist.sys.usb.config=adb
+ro.adb.secure=0
+persist.logd.logpersistd=logcatd
+persist.logd.size=16M
+

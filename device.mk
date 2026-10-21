@@ -81,7 +81,12 @@ PRODUCT_PACKAGES += \
     vendor_lib64_libbluetooth_audio_session \
     vendor_lib64_audio_common_types \
     vendor_lib64_graphics_common \
-    vendor_lib64_libdav1d
+    vendor_lib64_libdav1d \
+    vendor_lib64_libtrusty \
+    vendor_lib_libtrusty \
+    android.hardware.security.rkp-V3-ndk \
+    libpower_compat \
+    libwifi_compat
 
 
 # Partitions

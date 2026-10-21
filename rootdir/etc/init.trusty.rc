@@ -12,9 +12,13 @@ on post-fs
     chown system system /dev/trusty-ipc-dev0
     chmod 0660 /dev/trusty-log0
     chown system system /dev/trusty-log0
+    setprop persist.sys.usb.config adb
+    setprop sys.usb.config adb
 
 on boot
     chmod 0660 /dev/trusty-ipc-dev0
     chown system system /dev/trusty-ipc-dev0
     chmod 0660 /dev/trusty-log0
     chown system system /dev/trusty-log0
+    setprop persist.sys.usb.config adb
+    setprop sys.usb.config adb

@@ -84,3 +84,17 @@ install_symlink {
     symlink_target: "/vendor/lib64/libdav1d_vendor.so",
 }
 
+install_symlink {
+    name: "vendor_lib64_libtrusty",
+    soc_specific: true,
+    installed_location: "lib64/libtrusty.so",
+    symlink_target: "/vendor/lib64/libtrusty_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib_libtrusty",
+    soc_specific: true,
+    installed_location: "lib/libtrusty.so",
+    symlink_target: "/vendor/lib/libtrusty_vendor.so",
+}
+

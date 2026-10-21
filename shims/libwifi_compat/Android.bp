@@ -1,0 +1,13 @@
+//
+// SPDX-FileCopyrightText: The LXX516 Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libwifi_compat",
+    vendor: true,
+    srcs: ["libwifi_compat.cpp"],
+    shared_libs: [
+        "libcrypto",
+    ],
+}
