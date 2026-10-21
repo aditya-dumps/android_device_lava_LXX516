@@ -79,5 +79,8 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Rootdir, the fstab has to sit in the first stage ramdisk to mount super
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.ums9621_1h10:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.ums9621_1h10 \
-    $(LOCAL_PATH)/recovery/root/ueventd.ums9621_1h10.rc:$(TARGET_VENDOR_RAMDISK_OUT)/ueventd.ums9621_1h10.rc
+    $(LOCAL_PATH)/rootdir/etc/fstab.ums9621_1h10:$(TARGET_COPY_OUT_RAMDISK)/fstab.ums9621_1h10 \
+    $(LOCAL_PATH)/rootdir/etc/fstab.ums9621_1h10:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.ums9621_1h10 \
+    $(LOCAL_PATH)/rootdir/etc/fstab.ums9621_1h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9621_1h10 \
+    $(LOCAL_PATH)/rootdir/etc/fstab.ums9621_1h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/fstab.ums9621_1h10 \
+    $(LOCAL_PATH)/recovery/root/ueventd.ums9621_1h10.rc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/ueventd.ums9621_1h10.rc
