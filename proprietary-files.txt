@@ -28,7 +28,7 @@ vendor/etc/usb_audio_policy_configuration.xml
 vendor/lib/android.hardware.audio.effect@7.0.so
 vendor/lib/android.hardware.audio@7.0.so
 vendor/lib/android.hardware.audio@7.1.so
-vendor/lib/android.hardware.bluetooth.audio-impl.so;MODULE=android.hardware.bluetooth.audio-impl_vendor
+vendor/lib/android.hardware.bluetooth.audio-impl.so;MODULE=android.hardware.bluetooth.audio-impl_vendor;SYMLINK=vendor/lib/android.hardware.bluetooth.audio-impl.so
 vendor/lib/android.hardware.bluetooth.audio@2.0.so
 vendor/lib/android.hardware.bluetooth.audio@2.1.so
 vendor/lib/android.media.audio.common.types-V1-cpp.so;MODULE=android.media.audio.common.types-V1-cpp_vendor
@@ -92,7 +92,7 @@ vendor/lib/soundfx/libvisualizer.so
 vendor/lib64/android.hardware.audio.effect@7.0.so
 vendor/lib64/android.hardware.audio@7.0.so
 vendor/lib64/android.hardware.audio@7.1.so
-vendor/lib64/android.hardware.bluetooth.audio-impl.so;MODULE=android.hardware.bluetooth.audio-impl_vendor
+vendor/lib64/android.hardware.bluetooth.audio-impl.so;MODULE=android.hardware.bluetooth.audio-impl_vendor;SYMLINK=vendor/lib64/android.hardware.bluetooth.audio-impl.so
 vendor/lib64/android.hardware.bluetooth.audio@2.0.so
 vendor/lib64/android.hardware.bluetooth.audio@2.1.so
 vendor/lib64/android.media.audio.common.types-V1-cpp.so;MODULE=android.media.audio.common.types-V1-cpp_vendor
@@ -158,7 +158,7 @@ vendor/lib64/libbt-sprd_suite.so
 vendor/lib64/libbt-ssp_bt.so
 
 # Boot
-vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service
+# vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service
 vendor/lib/android.hardware.boot@1.0.so
 vendor/lib/android.hardware.boot@1.1.so
 vendor/lib/android.hardware.boot@1.2.so
@@ -925,7 +925,7 @@ vendor/lib64/libvibrator.so;MODULE=libvibrator_vendor
 # Wi-Fi
 vendor/bin/hw/android.hardware.wifi@1.0-service
 vendor/bin/hw/hostapd;MODULE=hostapd_vendor
-vendor/bin/hw/wpa_supplicant;MODULE=wpa_supplicant_vendor
+vendor/bin/hw/wpa_supplicant;MODULE=wpa_supplicant_vendor;SYMLINK=vendor/bin/hw/wpa_supplicant
 vendor/lib/hw/liblowi_wifihal.so
 vendor/lib/hw/libwifi-hal-unisoc.so
 vendor/lib/liblwpAdapter.so
@@ -1033,7 +1033,7 @@ vendor/etc/init/unisoc.rild.rc
 vendor/etc/init/vendor-oemlock-default.rc
 vendor/etc/init/vendor-power-default.rc
 vendor/etc/init/vendor.sprd.gnss-default.rc
-vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc
+# vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc
 vendor/etc/init/vendor.sprd.hardware.broadcastradio@2.0-service.rc
 vendor/etc/init/vendor.sprd.hardware.connmgr@1.0-service.rc
 vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc

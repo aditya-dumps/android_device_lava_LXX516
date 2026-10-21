@@ -99,7 +99,9 @@ PRODUCT_PACKAGES += \
     libpower_compat \
     libwifi_compat \
     libui_compat \
-    libbase_compat
+    libbase_compat \
+    android.hardware.wifi.hostapd.xml \
+    android.hardware.wifi.supplicant.xml
 
 
 # Partitions
