@@ -69,10 +69,20 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/modules/modules.load.cali:vendor_dlkm/lib/modules/modules.load.cali \
     $(LOCAL_PATH)/prebuilts/modules/modules.load.charger:vendor_dlkm/lib/modules/modules.load.charger
 
-# Symlinks declared by hand: the module loader path and the toybox [ builtin
+# Symlinks declared by hand: the module loader path, toybox [, and renamed _vendor prebuilts
 PRODUCT_PACKAGES += \
     vendor_lib_modules \
-    vendor_bin_lbracket
+    vendor_bin_lbracket \
+    vendor_lib64_libkeymint \
+    vendor_lib64_lib_android_keymaster_keymint_utils \
+    vendor_lib64_libwifi_hal \
+    vendor_lib_libwifi_hal \
+    vendor_lib64_libbluetooth_audio_session_aidl \
+    vendor_lib64_libbluetooth_audio_session \
+    vendor_lib64_audio_common_types \
+    vendor_lib64_graphics_common \
+    vendor_lib64_libdav1d
+
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true

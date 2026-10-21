@@ -19,3 +19,68 @@ install_symlink {
     installed_location: "bin/[",
     symlink_target: "/vendor/bin/toybox_vendor",
 }
+
+// Vendor library symlinks to resolve ELF DT_NEEDED references for renamed _vendor prebuilts
+install_symlink {
+    name: "vendor_lib64_libkeymint",
+    soc_specific: true,
+    installed_location: "lib64/libkeymint.so",
+    symlink_target: "/vendor/lib64/libkeymint_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib64_lib_android_keymaster_keymint_utils",
+    soc_specific: true,
+    installed_location: "lib64/lib_android_keymaster_keymint_utils.so",
+    symlink_target: "/vendor/lib64/lib_android_keymaster_keymint_utils_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib64_libwifi_hal",
+    soc_specific: true,
+    installed_location: "lib64/libwifi-hal.so",
+    symlink_target: "/vendor/lib64/libwifi-hal_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib_libwifi_hal",
+    soc_specific: true,
+    installed_location: "lib/libwifi-hal.so",
+    symlink_target: "/vendor/lib/libwifi-hal_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib64_libbluetooth_audio_session_aidl",
+    soc_specific: true,
+    installed_location: "lib64/libbluetooth_audio_session_aidl.so",
+    symlink_target: "/vendor/lib64/libbluetooth_audio_session_aidl_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib64_libbluetooth_audio_session",
+    soc_specific: true,
+    installed_location: "lib64/libbluetooth_audio_session.so",
+    symlink_target: "/vendor/lib64/libbluetooth_audio_session_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib64_audio_common_types",
+    soc_specific: true,
+    installed_location: "lib64/android.media.audio.common.types-V1-cpp.so",
+    symlink_target: "/vendor/lib64/android.media.audio.common.types-V1-cpp_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib64_graphics_common",
+    soc_specific: true,
+    installed_location: "lib64/android.hardware.graphics.common-V3-ndk.so",
+    symlink_target: "/vendor/lib64/android.hardware.graphics.common-V3-ndk_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib64_libdav1d",
+    soc_specific: true,
+    installed_location: "lib64/libdav1d.so",
+    symlink_target: "/vendor/lib64/libdav1d_vendor.so",
+}
+
