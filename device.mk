@@ -101,4 +101,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.ums9621_1h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9621_1h10_3le \
     $(LOCAL_PATH)/rootdir/etc/fstab.ums9621_1h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9621_1h10_go \
     $(LOCAL_PATH)/rootdir/etc/fstab.ums9621_1h10:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9621_1h10_uob \
+    $(LOCAL_PATH)/rootdir/etc/init.trusty.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.trusty.rc \
     $(LOCAL_PATH)/recovery/root/ueventd.ums9621_1h10.rc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/ueventd.ums9621_1h10.rc

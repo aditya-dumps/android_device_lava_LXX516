@@ -8,3 +8,6 @@
 /dev/dri/*                       0666     root        graphics
 /dev/graphics/*                  0666     root        graphics
 /dev/watchdog                    0660     root        root
+
+/dev/trusty-ipc-dev0             0660     system      system
+/dev/trusty-log0                 0660     system      system

@@ -391,6 +391,7 @@
 /dev/block/mtdblock2         u:object_r:cache_block_device:s0
 /dev/cpu_dma_latency    u:object_r:power_device:s0
 /dev/trusty-ipc-dev0			u:object_r:teetz_device:s0
+/dev/trusty-log0			u:object_r:teetz_device:s0
 /(vendor|system/vendor)/bin/thermald        u:object_r:thermald_exec:s0
 /dev/block/memdisk0p1  u:object_r:rebootescrow_device:s0
 /proc/tmsdev/shutdown u:object_r:tmsdev_proc_file:s0
