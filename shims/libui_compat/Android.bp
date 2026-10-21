@@ -10,7 +10,5 @@ cc_library_shared {
     srcs: ["libui_compat.cpp"],
     shared_libs: [
         "libui",
-        "libutils",
-        "libcutils",
     ],
 }

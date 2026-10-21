@@ -3,31 +3,39 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <ui/GraphicBufferMapper.h>
-#include <ui/Rect.h>
-#include <cutils/native_handle.h>
+#include <stdint.h>
+
+struct native_handle;
 
 namespace android {
 
+class Rect;
+class GraphicBufferMapper;
+
+extern "C" {
+int32_t _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPv(
+    GraphicBufferMapper* thisptr, const struct native_handle* handle,
+    uint32_t usage, const Rect& bounds, void** vaddr);
+
+int32_t _ZN7android19GraphicBufferMapper6unlockEPK13native_handlePNS_4base14unique_fd_implINS4_13DefaultCloserEEE(
+    GraphicBufferMapper* thisptr, const struct native_handle* handle, void* outFence);
+}
+
 extern "C" {
 
-status_t _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPvPiS9_(
-    GraphicBufferMapper* thisptr, buffer_handle_t handle, uint32_t usage,
+int32_t _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPvPiS9_(
+    GraphicBufferMapper* thisptr, const struct native_handle* handle, uint32_t usage,
     const Rect& bounds, void** vaddr, int32_t* outBytesPerPixel, int32_t* outBytesPerStride) {
     if (outBytesPerPixel) *outBytesPerPixel = -1;
     if (outBytesPerStride) *outBytesPerStride = -1;
-    if (thisptr != nullptr) {
-        return thisptr->lock(handle, usage, bounds, vaddr);
-    }
-    return GraphicBufferMapper::getInstance().lock(handle, usage, bounds, vaddr);
+    return _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPv(
+        thisptr, handle, usage, bounds, vaddr);
 }
 
-status_t _ZN7android19GraphicBufferMapper6unlockEPK13native_handle(
-    GraphicBufferMapper* thisptr, buffer_handle_t handle) {
-    if (thisptr != nullptr) {
-        return thisptr->unlock(handle, nullptr);
-    }
-    return GraphicBufferMapper::getInstance().unlock(handle, nullptr);
+int32_t _ZN7android19GraphicBufferMapper6unlockEPK13native_handle(
+    GraphicBufferMapper* thisptr, const struct native_handle* handle) {
+    return _ZN7android19GraphicBufferMapper6unlockEPK13native_handlePNS_4base14unique_fd_implINS4_13DefaultCloserEEE(
+        thisptr, handle, nullptr);
 }
 
 } // extern "C"

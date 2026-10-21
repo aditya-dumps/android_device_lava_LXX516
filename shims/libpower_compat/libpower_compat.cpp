@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 
-extern "C" bool SetTaskProfiles(int tid, const std::vector<std::string>& profiles, bool use_fd_cache) {
-    return ::SetTaskProfiles(tid, profiles, use_fd_cache);
+bool SetTaskProfiles_compat(int tid, const std::vector<std::string>& profiles, bool use_fd_cache) asm("SetTaskProfiles");
+
+bool SetTaskProfiles_compat(int tid, const std::vector<std::string>& profiles, bool use_fd_cache) {
+    return SetTaskProfiles(tid, profiles, use_fd_cache);
 }
