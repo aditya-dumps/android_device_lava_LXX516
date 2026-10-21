@@ -193,7 +193,7 @@ vendor/lib/android.hardware.camera.device@3.6.so
 vendor/lib/android.hardware.camera.provider@2.4-external-sprd.so
 vendor/lib/android.hardware.camera.provider@2.4-legacy-sprd.so
 vendor/lib/android.hardware.camera.provider@2.4.so
-vendor/lib/camera.device@1.0-impl.so
+vendor/lib/camera.device@1.0-impl.so;MAKE_COPY_RULE_ONLY
 vendor/lib/camera.device@3.2-impl-sprd.so
 vendor/lib/camera.device@3.3-impl-sprd.so
 vendor/lib/camera.device@3.4-external-impl-sprd.so
@@ -288,7 +288,7 @@ vendor/lib64/android.hardware.camera.device@3.6.so
 vendor/lib64/android.hardware.camera.provider@2.4-external-sprd.so
 vendor/lib64/android.hardware.camera.provider@2.4-legacy-sprd.so
 vendor/lib64/android.hardware.camera.provider@2.4.so
-vendor/lib64/camera.device@1.0-impl.so
+vendor/lib64/camera.device@1.0-impl.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/camera.device@3.2-impl-sprd.so
 vendor/lib64/camera.device@3.3-impl-sprd.so
 vendor/lib64/camera.device@3.4-external-impl-sprd.so
@@ -1543,6 +1543,7 @@ vendor/lib/libtensorflowlite_c.so
 vendor/lib/libtinycompress.so
 vendor/lib/libtinycompress_unisoc.so
 vendor/lib/libtinyxml.so
+vendor/lib/libtinyxml2.so;MAKE_COPY_RULE_ONLY
 vendor/lib/libunievent.so
 vendor/lib/libunisocisc.so;FIX_SONAME
 vendor/lib/libunisocrecordcvs.so
@@ -1646,6 +1647,7 @@ vendor/lib64/libtextclassifier_hash.so
 vendor/lib64/libtinycompress.so
 vendor/lib64/libtinycompress_unisoc.so
 vendor/lib64/libtinyxml.so
+vendor/lib64/libtinyxml2.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libunievent.so
 vendor/lib64/libunnengine.so
 vendor/lib64/libutilsparser.so

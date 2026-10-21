@@ -91,6 +91,10 @@ PRODUCT_PACKAGES += \
     vendor_lib_libdav1d \
     vendor_lib64_graphics_allocator \
     vendor_lib_graphics_allocator \
+    vendor_lib64_graphics_mapper \
+    vendor_lib_graphics_mapper \
+    vendor_lib64_checkkeybox \
+    hwservicemanager \
     android.hardware.security.rkp-V3-ndk \
     libpower_compat \
     libwifi_compat \
