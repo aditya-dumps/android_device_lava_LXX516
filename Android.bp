@@ -98,3 +98,53 @@ install_symlink {
     symlink_target: "/vendor/lib/libtrusty_vendor.so",
 }
 
+install_symlink {
+    name: "vendor_lib_libbluetooth_audio_session_aidl",
+    soc_specific: true,
+    installed_location: "lib/libbluetooth_audio_session_aidl.so",
+    symlink_target: "/vendor/lib/libbluetooth_audio_session_aidl_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib_libbluetooth_audio_session",
+    soc_specific: true,
+    installed_location: "lib/libbluetooth_audio_session.so",
+    symlink_target: "/vendor/lib/libbluetooth_audio_session_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib_audio_common_types",
+    soc_specific: true,
+    installed_location: "lib/android.media.audio.common.types-V1-cpp.so",
+    symlink_target: "/vendor/lib/android.media.audio.common.types-V1-cpp_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib_graphics_common",
+    soc_specific: true,
+    installed_location: "lib/android.hardware.graphics.common-V3-ndk.so",
+    symlink_target: "/vendor/lib/android.hardware.graphics.common-V3-ndk_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib_libdav1d",
+    soc_specific: true,
+    installed_location: "lib/libdav1d.so",
+    symlink_target: "/vendor/lib/libdav1d_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib64_graphics_allocator",
+    soc_specific: true,
+    installed_location: "lib64/android.hardware.graphics.allocator-V1-ndk.so",
+    symlink_target: "/vendor/lib64/android.hardware.graphics.allocator-V1-ndk_vendor.so",
+}
+
+install_symlink {
+    name: "vendor_lib_graphics_allocator",
+    soc_specific: true,
+    installed_location: "lib/android.hardware.graphics.allocator-V1-ndk.so",
+    symlink_target: "/vendor/lib/android.hardware.graphics.allocator-V1-ndk_vendor.so",
+}
+
+
