@@ -86,6 +86,10 @@ persist.vendor.autofocus.flash.disable=0
 persist.vendor.cam.audio.control.enable=1
 persist.vendor.multiapp.opencamera.enable=0
 
+# Disable memory pointer tagging for 64-bit camera HAL
+arm64.memtag.process.android.hardware.camera.provider@2.4-service_64=off
+persist.arm64.memtag.default=off
+
 # DRM
 ro.vendor.media.wfd.resolution=2
 drm.service.enabled=true
