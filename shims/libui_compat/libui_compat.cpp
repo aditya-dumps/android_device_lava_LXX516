@@ -4,6 +4,13 @@
  */
 
 #include <stdint.h>
+#include <malloc.h>
+
+#if defined(__aarch64__)
+__attribute__((constructor)) static void disable_pointer_tagging() {
+    mallopt(M_BIONIC_SET_HEAP_TAGGING_LEVEL, M_HEAP_TAGGING_LEVEL_NONE);
+}
+#endif
 
 struct native_handle;
 
