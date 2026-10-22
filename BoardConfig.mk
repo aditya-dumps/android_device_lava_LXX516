@@ -64,8 +64,8 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 
 # GKI, the cmdline and the boot config belong in vendor_boot, boot.img is kernel only
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 bootconfig androidboot.selinux=permissive loglevel=8 printk.devkmsg=on
-BOARD_BOOTCONFIG := androidboot.hardware=ums9621_1h10 androidboot.fstab_suffix=ums9621_1h10 androidboot.selinux=permissive androidboot.init_fatal_panic=true androidboot.loglevel=8
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 bootconfig loglevel=8 printk.devkmsg=on
+BOARD_BOOTCONFIG := androidboot.hardware=ums9621_1h10 androidboot.fstab_suffix=ums9621_1h10 androidboot.init_fatal_panic=true androidboot.loglevel=8
 
 # The stock vendor_boot header addresses, the mkbootimg defaults differ on the ramdisk
 BOARD_MKBOOTIMG_ARGS += --base 0x00000000
