@@ -97,6 +97,8 @@ PRODUCT_PACKAGES += \
     vendor_lib64_graphics_mapper \
     vendor_lib_graphics_mapper \
     vendor_lib64_checkkeybox \
+    vendor_lib64_android_hardware_bluetooth_audio_impl \
+    vendor_lib_android_hardware_bluetooth_audio_impl \
     hwservicemanager \
     android.hardware.security.rkp-V3-ndk \
     libpower_compat \
@@ -104,7 +106,12 @@ PRODUCT_PACKAGES += \
     libui_compat \
     libbase_compat \
     android.hardware.wifi.hostapd.xml \
-    android.hardware.wifi.supplicant.xml
+    android.hardware.wifi.supplicant.xml \
+    wpa_supplicant
+
+# Remove unsupported AudioFX (whale HAL handles DSP effects internally)
+PRODUCT_PACKAGES_REMOVE += \
+    AudioFX
 
 
 # Overlays

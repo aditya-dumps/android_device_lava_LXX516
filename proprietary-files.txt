@@ -28,7 +28,7 @@ vendor/etc/usb_audio_policy_configuration.xml
 vendor/lib/android.hardware.audio.effect@7.0.so
 vendor/lib/android.hardware.audio@7.0.so
 vendor/lib/android.hardware.audio@7.1.so
-vendor/lib/android.hardware.bluetooth.audio-impl.so;MODULE=android.hardware.bluetooth.audio-impl_vendor;SYMLINK=vendor/lib/android.hardware.bluetooth.audio-impl.so
+vendor/lib/android.hardware.bluetooth.audio-impl.so;MODULE=android.hardware.bluetooth.audio-impl_vendor
 vendor/lib/android.hardware.bluetooth.audio@2.0.so
 vendor/lib/android.hardware.bluetooth.audio@2.1.so
 vendor/lib/android.media.audio.common.types-V1-cpp.so;MODULE=android.media.audio.common.types-V1-cpp_vendor
@@ -92,7 +92,7 @@ vendor/lib/soundfx/libvisualizer.so
 vendor/lib64/android.hardware.audio.effect@7.0.so
 vendor/lib64/android.hardware.audio@7.0.so
 vendor/lib64/android.hardware.audio@7.1.so
-vendor/lib64/android.hardware.bluetooth.audio-impl.so;MODULE=android.hardware.bluetooth.audio-impl_vendor;SYMLINK=vendor/lib64/android.hardware.bluetooth.audio-impl.so
+vendor/lib64/android.hardware.bluetooth.audio-impl.so;MODULE=android.hardware.bluetooth.audio-impl_vendor
 vendor/lib64/android.hardware.bluetooth.audio@2.0.so
 vendor/lib64/android.hardware.bluetooth.audio@2.1.so
 vendor/lib64/android.media.audio.common.types-V1-cpp.so;MODULE=android.media.audio.common.types-V1-cpp_vendor
