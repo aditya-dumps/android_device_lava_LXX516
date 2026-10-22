@@ -23,7 +23,7 @@ VENDOR_PRODUCT_MK = VENDOR_DIR / 'LXX516-vendor.mk'
 
 PREFER = re.compile(r'^    prefer: true,\n', re.M)
 STEM_PATTERN = re.compile(
-    r'(name:\s*"(?!android\.hardware\.rebootescrow-service\.default_vendor|hostapd_vendor|wpa_supplicant_vendor)[^"]+_vendor",\n)\s*stem:\s*"[^"]+",\n',
+    r'(name:\s*"(?!android\.hardware\.rebootescrow-service\.default_vendor|hostapd_vendor)[^"]+_vendor",\n)\s*stem:\s*"[^"]+",\n',
     re.M,
 )
 
