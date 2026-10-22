@@ -104,6 +104,9 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi.supplicant.xml
 
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 

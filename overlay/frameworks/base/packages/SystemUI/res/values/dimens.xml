@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2026 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- The starting padding for the clock in the status bar. -->
+    <dimen name="status_bar_clock_starting_padding">12dp</dimen>
+
+    <!-- Starting padding for a left-aligned status bar clock -->
+    <dimen name="status_bar_left_clock_starting_padding">12dp</dimen>
+
+    <!-- The padding on the start of the statusbar -->
+    <dimen name="status_bar_padding_start">14dp</dimen>
+
+    <!-- The padding on the end of the statusbar -->
+    <dimen name="status_bar_padding_end">14dp</dimen>
+</resources>

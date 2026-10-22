@@ -925,7 +925,7 @@ vendor/lib64/libvibrator.so;MODULE=libvibrator_vendor
 # Wi-Fi
 vendor/bin/hw/android.hardware.wifi@1.0-service
 vendor/bin/hw/hostapd;MODULE=hostapd_vendor
-vendor/bin/hw/wpa_supplicant;MODULE=wpa_supplicant_vendor;SYMLINK=vendor/bin/hw/wpa_supplicant
+vendor/bin/hw/wpa_supplicant;MODULE=wpa_supplicant_vendor
 vendor/lib/hw/liblowi_wifihal.so
 vendor/lib/hw/libwifi-hal-unisoc.so
 vendor/lib/liblwpAdapter.so
