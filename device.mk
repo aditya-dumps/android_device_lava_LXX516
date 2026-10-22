@@ -6,6 +6,9 @@
 # Inherit some common Lineage stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Dalvik heap configuration for 4GB RAM
+$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
+
 # Inherit from the LXX516 vendor blobs
 $(call inherit-product, vendor/lava/LXX516/LXX516-vendor.mk)
 
