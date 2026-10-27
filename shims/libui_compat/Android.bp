@@ -9,6 +9,7 @@ cc_library_shared {
     compile_multilib: "both",
     srcs: ["libui_compat.cpp"],
     shared_libs: [
+        "libdl",
         "libui",
     ],
 }
