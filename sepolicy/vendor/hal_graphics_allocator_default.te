@@ -1,5 +1,7 @@
 # From the stock odm_sepolicy.cil and vendor_sepolicy.cil
 allow hal_graphics_allocator_default hal_graphics_allocator_default_exec:file { read getattr map execute open entrypoint };
+typeattribute hal_graphics_allocator_default_tmpfs mlstrustedobject;
+allow hal_graphics_allocator_client hal_graphics_allocator_default_tmpfs:file { read write getattr map };
 type_transition hal_graphics_allocator_default tmpfs:file hal_graphics_allocator_default_tmpfs;
 allow hal_graphics_allocator_default hal_graphics_allocator_default_tmpfs:file { read write getattr map };
 dontaudit hal_graphics_allocator_default unlabeled:dir search;

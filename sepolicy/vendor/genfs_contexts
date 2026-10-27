@@ -437,6 +437,7 @@ genfscon sysfs "/class/sprd_sensorhub/sensor_hub/calibrator_cmd" u:object_r:sysf
 genfscon sysfs "/devices/platform/charger-manager/wakeup/wakeup" u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/charger_policy_service/wakeup" u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/charger-manager/power_supply" u:object_r:sysfs_power:s0
+genfscon sysfs "/module/mali_kbase" u:object_r:sysfs_gpu:s0
 genfscon sysfs "/module/mali_kbase/parameters/gpu_boost_level2" u:object_r:sysfs_gpu_boost:s0
 genfscon sysfs "/devices/virtual/misc/zte_board_state/secstate" u:object_r:sys_mmc:s0
 genfscon sysfs "/module/mali_kbase/parameters/jit_can_reclaim" u:object_r:sysfs_jit_can_reclaim:s0

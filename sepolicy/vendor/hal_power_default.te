@@ -1,4 +1,5 @@
 # From the stock odm_sepolicy.cil and vendor_sepolicy.cil
+typeattribute hal_power_default mlstrustedsubject;
 allow hal_power_default hal_power_default_exec:file { read getattr map execute open entrypoint };
 allow hal_power_default hal_audio_default:binder transfer;
 allow hal_power_default power_device:chr_file { read write open };
