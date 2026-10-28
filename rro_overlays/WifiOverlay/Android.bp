@@ -1,0 +1,22 @@
+//
+// SPDX-FileCopyrightText: The LXX516 Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+runtime_resource_overlay {
+    name: "LXX516WifiOverlay",
+    resource_dirs: ["res"],
+    vendor: true,
+    sdk_version: "current",
+}
+
+override_runtime_resource_overlay {
+    name: "LXX516WifiOverlayGoogle",
+    base: "LXX516WifiOverlay",
+    package_name: "com.google.android.wifi.resources.lxx516",
+    target_package_name: "com.google.android.wifi.resources",
+}

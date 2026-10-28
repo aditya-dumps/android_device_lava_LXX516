@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: The LXX516 Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Disable WPA3 SAE auto-upgrade for transition mode networks because Unisoc SC2355 CP2 returns SPRD_CMD_STATUS_ARG_ERROR -->
+    <bool translatable="false" name="config_wifiSaeUpgradeEnabled">false</bool>
+    <bool translatable="false" name="config_wifiSaeUpgradeOffloadEnabled">false</bool>
+    <bool translatable="false" name="config_wifiSaeH2eSupported">false</bool>
+    <bool translatable="false" name="config_wifi_softap_sae_supported">false</bool>
+
+    <!-- General SC2355 / Marlin3 Wi-Fi configuration -->
+    <bool translatable="false" name="config_showConfirmationDialogForThirdPartyAppsEnablingWifi">true</bool>
+    <bool translatable="false" name="config_wifi5ghzSupport">true</bool>
+    <bool translatable="false" name="config_wifiAllowInsecureEnterpriseConfigurationsForSettingsAndSUW">true</bool>
+    <bool translatable="false" name="config_wifiDriverSupportedNl80211RegChangedEvent">true</bool>
+    <bool translatable="false" name="config_wifiSaveFactoryMacToWifiConfigStore">false</bool>
+    <bool translatable="false" name="config_wifiScanHiddenNetworksScanOnlyMode">true</bool>
+    <bool translatable="false" name="config_wifiSoftap5ghzSupported">true</bool>
+    <bool translatable="false" name="config_wifiSoftapPassphraseAsciiEncodableCheck">false</bool>
+    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
+    <bool translatable="false" name="config_wifi_connected_mac_randomization_supported">true</bool>
+    <bool translatable="false" name="config_wifi_fast_bss_transition_enabled">true</bool>
+    <bool translatable="false" name="config_wifi_framework_enable_associated_network_selection">false</bool>
+    <bool translatable="false" name="config_wifi_framework_enable_sar_tx_power_limit">true</bool>
+    <bool translatable="false" name="config_wifi_framework_enable_soft_ap_sar_tx_power_limit">true</bool>
+    <bool translatable="false" name="config_wifi_p2p_mac_randomization_supported">true</bool>
+    <bool translatable="false" name="config_wifi_softap_acs_supported">true</bool>
+    <bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">true</bool>
+
+    <integer translatable="false" name="config_wifiDisableReasonRepeatedNudFailuresWindowMs">0</integer>
+    <integer translatable="false" name="config_wifiHardwareSoftapMaxClientCount">10</integer>
+    <integer translatable="false" name="config_wifi_framework_wifi_score_entry_rssi_threshold_24GHz">-70</integer>
+    <integer translatable="false" name="config_wifi_framework_wifi_score_entry_rssi_threshold_5GHz">-66</integer>
+    <integer translatable="false" name="config_wifi_framework_wifi_score_good_rssi_threshold_24GHz">-56</integer>
+    <integer translatable="false" name="config_wifi_framework_wifi_score_good_rssi_threshold_5GHz">-52</integer>
+    <integer translatable="false" name="config_wifi_framework_wifi_score_low_rssi_threshold_24GHz">-63</integer>
+    <integer translatable="false" name="config_wifi_framework_wifi_score_low_rssi_threshold_5GHz">-59</integer>
+    <integer translatable="false" name="config_wifi_logger_ring_buffer_verbose_size_limit_kb">64</integer>
+    <string translatable="false" name="config_wifiSoftap2gChannelList"></string>
+</resources>

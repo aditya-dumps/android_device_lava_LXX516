@@ -117,6 +117,10 @@ PRODUCT_PACKAGES_REMOVE += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+PRODUCT_PACKAGES += \
+    LXX516WifiOverlay \
+    LXX516WifiOverlayGoogle
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 

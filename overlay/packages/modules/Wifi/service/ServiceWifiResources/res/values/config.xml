@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: The LXX516 Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Disable WPA3 SAE auto-upgrade for transition mode networks because Unisoc SC2355 CP2 returns SPRD_CMD_STATUS_ARG_ERROR -->
+    <bool translatable="false" name="config_wifiSaeUpgradeEnabled">false</bool>
+    <bool translatable="false" name="config_wifiSaeUpgradeOffloadEnabled">false</bool>
+    <bool translatable="false" name="config_wifiSaeH2eSupported">false</bool>
+    <bool translatable="false" name="config_wifi_softap_sae_supported">false</bool>
+</resources>
